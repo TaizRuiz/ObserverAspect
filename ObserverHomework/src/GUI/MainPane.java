@@ -1,0 +1,74 @@
+package GUI;
+
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+public class MainPane extends JFrame {
+	private JPanel PanelPrincipal;
+	private JButton btnRojo ;
+	private JButton btnVerde ;
+	private JButton btnAzul ;
+	
+	public MainPane() {
+		setVisible(true);
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		
+		PanelPrincipal = new JPanel();
+		
+		PanelPrincipal.setBorder(new EmptyBorder(5, 5, 5, 5));
+
+		setContentPane(PanelPrincipal);
+		
+		btnRojo = new JButton("Rojo");
+		btnVerde = new JButton("Verde");
+		btnAzul = new JButton("Azul");
+		
+		btnRojo.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ButtonEvent.updateBackground(getPane(),Color.red);
+				
+			}	
+				});
+		btnAzul.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ButtonEvent.updateBackground(getPane(),Color.blue);
+				
+			}	
+				});
+		btnVerde.addActionListener(new ActionListener(){
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				ButtonEvent.updateBackground(getPane(),Color.green);
+				
+			}	
+				});
+		PanelPrincipal.add(btnRojo);
+		PanelPrincipal.add(btnVerde);
+		PanelPrincipal.add(btnAzul);
+	
+	}
+	
+	
+
+	public JPanel getPane() {
+		return this.PanelPrincipal;
+	}
+	public JButton getBtnRed() {
+		return this.btnRojo;
+	}
+	public JButton getBtnBlue() {
+		return this.btnAzul;
+	}
+	public JButton getBtnGreen() {
+		return this.btnVerde;
+	}
+}
