@@ -24,6 +24,8 @@ public aspect ObserverAspect {
 		 call(void GUI.ButtonEvent.updateBackground(JPanel, Color )) && args(jp,c);
 	    
 	    after(JPanel jp, Color c) :receivedUpdate(jp,c) {
+	    	
+	    	
 	        System.out.println("[ Auditoría ] Cambio de color completado. Hora: " + LocalDateTime.now());
 	    	System.out.println(  "[ Cambio recibido ]  Color: "+ colorToString(c));
 	    	
