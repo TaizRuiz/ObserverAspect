@@ -3,7 +3,6 @@ package Aspects;
 
 import java.awt.Color;
 import java.time.LocalDateTime;
-
 import javax.swing.JPanel;
 
 public aspect ObserverAspect {
@@ -30,4 +29,14 @@ public aspect ObserverAspect {
 	    	
 	    	
 	    }
+	    
+	pointcut buttonClickEvent( JPanel jp, Color c) : 
+	    execution(void GUI.ButtonEvent.updateBackground(JPanel, Color)) && args(jp,c);
+
+	    before(JPanel jp, Color c) : buttonClickEvent(jp, c) {
+	        String logMessage = String.format("[Registro de Eventos] Botón clickeado en %s", LocalDateTime.now());
+	        System.out.println(logMessage);
+	        
+	    }
+	    
 }
