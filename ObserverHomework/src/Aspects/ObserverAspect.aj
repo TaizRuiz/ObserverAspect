@@ -2,10 +2,14 @@ package Aspects;
 
 
 import java.awt.Color;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.time.LocalDateTime;
 import javax.swing.JPanel;
 
 public aspect ObserverAspect {
+	String filepath="src/eventRecord/buttonActions.txt";
 	public static String colorToString(Color c) {
 		String color="";
 		if (c.equals(Color.red)) {
@@ -25,8 +29,10 @@ public aspect ObserverAspect {
 	    
 	    after(JPanel jp, Color c) :receivedUpdate(jp,c) {
 	    	
-	    	
-	        System.out.println("[ Auditoría ] Cambio de color completado. Hora: " + LocalDateTime.now());
+	    	String logMessage = String.format("[Auditoria] Cambio de color realizado %s", LocalDateTime.now());
+	    	String color=colorToString(c);
+	    	String finalMessage=logMessage+" "+color;
+	        insertIntoTxt(finalMessage);
 	    	System.out.println(  "[ Cambio recibido ]  Color: "+ colorToString(c));
 	    	
 	    	
@@ -37,8 +43,19 @@ public aspect ObserverAspect {
 
 	    before(JPanel jp, Color c) : buttonClickEvent(jp, c) {
 	        String logMessage = String.format("[Registro de Eventos] Botón clickeado en %s", LocalDateTime.now());
-	        System.out.println(logMessage);
+	        insertIntoTxt(logMessage);
 	        
+	    }
+	    
+	    public void insertIntoTxt(String message) {
+	    	try (BufferedWriter br=new BufferedWriter(new FileWriter(filepath,true))){
+
+	               br.write(message);
+	               br.newLine(); 
+	               
+	           } catch (IOException e) {
+	               e.printStackTrace();
+	           }
 	    }
 	    
 }
