@@ -23,6 +23,7 @@ public class MainPane extends JFrame {
 		setBounds(100, 100, 450, 300);
 		
 		PanelPrincipal = new JPanel();
+		messageLabel=new JLabel();
 		
 		PanelPrincipal.setBorder(new EmptyBorder(5, 5, 5, 5));
 
@@ -32,10 +33,14 @@ public class MainPane extends JFrame {
 		btnVerde = new JButton("Verde");
 		btnAzul = new JButton("Azul");
 		
+		
 		btnRojo.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				ButtonEvent.updateBackground(getPane(),Color.red);
+				ButtonEvent.setLabelContent(messageLabel, "red");
+				
+				
 					
 			}	
 				});
@@ -43,6 +48,7 @@ public class MainPane extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				ButtonEvent.updateBackground(getPane(),Color.blue);
+				ButtonEvent.setLabelContent(messageLabel, "blue");
 				
 			}	
 				});
@@ -50,6 +56,7 @@ public class MainPane extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				ButtonEvent.updateBackground(getPane(),Color.green);
+				ButtonEvent.setLabelContent(messageLabel, "green");
 				
 			}	
 				});
@@ -57,8 +64,8 @@ public class MainPane extends JFrame {
 		PanelPrincipal.add(btnVerde);
 		PanelPrincipal.add(btnAzul);
 		
-		messageLabel = new JLabel();
-        PanelPrincipal.add(messageLabel);
+		PanelPrincipal.add(messageLabel);
+		
 	
 	}
 	
@@ -75,5 +82,8 @@ public class MainPane extends JFrame {
 	}
 	public JButton getBtnGreen() {
 		return this.btnVerde;
+	}
+	public JLabel getLabel() {
+		return this.messageLabel;
 	}
 }

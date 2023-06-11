@@ -14,36 +14,7 @@ import javax.swing.JButton;
 
 
 public aspect ObserverAspect {
-	
-	pointcut cambioColorEvento(JPanel jp, Color c):
-        call(void GUI.ButtonEvent.updateBackground(JPanel, Color)) && args(jp, c);
 
-    after(JPanel jp, Color c) : cambioColorEvento(jp, c) {
-
-        String color = colorToString(c);
-        System.out.println("[Cambio recibido] Color: " + color);
-
-        JLabel messageLabel = getMessageLabel(jp);
-        if (messageLabel != null) {
-            String message = "Se seleccionó el color " + color;
-            messageLabel.setText(message);
-        }
-    }
-
-    private JLabel getMessageLabel(JPanel panel) {
-        Component[] components = panel.getComponents();
-
-        for (Component component : components) {
-            if (component instanceof JLabel) {
-                return (JLabel) component;
-            }
-        }
-
-        return null;
-    }
-
-   
-    
 	String filepath="src/eventRecord/buttonActions.txt";
 	public static String colorToString(Color c) {
 		String color="";

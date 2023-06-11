@@ -1,0 +1,13 @@
+[Registro de Eventos] Botón clickeado en 2023-06-10T21:18:10.992225700
+[Auditoria] Cambio de color realizado 2023-06-10T21:18:10.997181300 rojo
+[Registro de Eventos] Botón clickeado en 2023-06-10T21:18:11.836728600
+[Auditoria] Cambio de color realizado 2023-06-10T21:18:11.836728600 verde
+[Registro de Eventos] Botón clickeado en 2023-06-10T21:18:12.900090300
+[Auditoria] Cambio de color realizado 2023-06-10T21:18:12.900997 azul
+[Registro de Eventos] Botón clickeado en 2023-06-10T21:44:37.441995800
+[Auditoria] Cambio de color realizado 2023-06-10T21:44:37.446163300 rojo
+[Registro de Eventos] Botón clickeado en 2023-06-10T21:45:50.346099300
+[Auditoria] Cambio de color realizado 2023-06-10T21:45:50.350119400 rojo
+[Registro de Eventos] Botón clickeado en 2023-06-10T21:45:51.875620400
+[Auditoria] Cambio de color realizado 2023-06-10T21:45:51.876624800 verde
+[Registro de Eventos] Botón clickeado en 2023-06-10T21:45:52.826429800
