@@ -6,6 +6,7 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
@@ -14,6 +15,7 @@ public class MainPane extends JFrame {
 	private JButton btnRojo ;
 	private JButton btnVerde ;
 	private JButton btnAzul ;
+	private JLabel messageLabel;
 	
 	public MainPane() {
 		setVisible(true);
@@ -34,7 +36,7 @@ public class MainPane extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				ButtonEvent.updateBackground(getPane(),Color.red);
-				
+					
 			}	
 				});
 		btnAzul.addActionListener(new ActionListener(){
@@ -54,6 +56,9 @@ public class MainPane extends JFrame {
 		PanelPrincipal.add(btnRojo);
 		PanelPrincipal.add(btnVerde);
 		PanelPrincipal.add(btnAzul);
+		
+		messageLabel = new JLabel();
+        PanelPrincipal.add(messageLabel);
 	
 	}
 	
